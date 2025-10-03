@@ -48,6 +48,11 @@ services:
     ports:
       # Maps port 5173 on the host to port 5173 in the container (Vite's default).
       - "5173:5173"
+    volumes:
+      # Mounts the frontend source code into the container for live reloading.
+      - ./frontend:/app
+      # Anonymous volume to avoid overwriting the container's node_modules.
+      - /app/node_modules
 
 # Defines the named volumes used by the services.
 volumes:
