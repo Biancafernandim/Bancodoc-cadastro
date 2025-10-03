@@ -65,6 +65,13 @@ To get the application up and running, follow these simple steps:
 
     -   **Frontend**: Open your web browser and navigate to [http://localhost:5173](http://localhost:5173).
     -   **Backend API**: The API is accessible at [http://localhost:3001](http://localhost:3001).
+    -   Ótima pergunta! Depois de iniciar a aplicação com o comando sudo docker compose up --build -d, você pode acessar e verificar as telas nos seguintes endereços:
+
+        Página Inicial: http://localhost:5173/
+        Clientes: http://localhost:5173/clientes
+        Fornecedores: http://localhost:5173/fornecedores
+        Cadastrar Colaborador: http://localhost:5173/colaboradores/cadastrar
+        Contratos: http://localhost:5173/contratos
 
 ## Usage
 
