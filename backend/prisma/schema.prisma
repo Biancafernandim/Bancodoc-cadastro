@@ -1,0 +1,58 @@
+// backend/prisma/schema.prisma (Versão 3.0 - Em Português)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  id        Int      @id @default(autoincrement())
+  nome      String   @unique
+  unidades  Unidade[]
+  contratos Contrato[]
+}
+
+model Fornecedor {
+  id           Int      @id @default(autoincrement())
+  nome         String   @unique
+  cnpj         String?  @unique
+  colaboradores Colaborador[]
+  contratos    Contrato[]
+}
+
+model Unidade {
+  id        Int     @id @default(autoincrement())
+  nome      String
+  cliente   Cliente @relation(fields: [clienteId], references: [id])
+  clienteId Int
+}
+
+model Contrato {
+  id           Int      @id @default(autoincrement())
+  numero       String   @unique
+  dataInicio   DateTime
+  dataFim      DateTime
+  cliente      Cliente    @relation(fields: [clienteId], references: [id])
+  clienteId    Int
+  fornecedor   Fornecedor @relation(fields: [fornecedorId], references: [id])
+  fornecedorId Int
+}
+
+model Colaborador {
+  id              Int      @id @default(autoincrement())
+  nome            String
+  cpf             String   @unique
+  dataNascimento  DateTime
+  nomeMae         String
+  dataAdmissao    DateTime
+  dataDemissao    DateTime?
+  ativo           Boolean  @default(true)
+  criadoEm        DateTime @default(now())
+  atualizadoEm    DateTime @updatedAt
+  fornecedor      Fornecedor @relation(fields: [fornecedorId], references: [id])
+  fornecedorId    Int
+}
