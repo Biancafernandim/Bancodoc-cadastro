@@ -1,23 +1,32 @@
+/* General styles for the root element where the React app is mounted. */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 1280px; /* Sets a maximum width for the app content. */
+  margin: 0 auto; /* Centers the content horizontally. */
+  padding: 2rem; /* Adds padding around the content. */
+  text-align: center; /* Centers the text within the app. */
 }
 
+/* Styles for the logo images (Vite and React). */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 6em; /* Sets a fixed height for the logos. */
+  padding: 1.5em; /* Adds padding around the logos. */
+  will-change: filter; /* Optimizes the filter property for animations. */
+  transition: filter 300ms; /* Adds a smooth transition for the filter property. */
 }
+
+/* Hover effect for the logos. */
 .logo:hover {
+  /* Adds a drop shadow effect when hovering over the Vite logo. */
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
+/* Hover effect specific to the React logo. */
 .logo.react:hover {
+  /* Adds a different drop shadow effect for the React logo. */
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Defines a spinning animation for the logos. */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -27,16 +36,19 @@
   }
 }
 
+/* Applies the spinning animation if the user has no preference for reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 20s linear; /* Applies the infinite spinning animation. */
   }
 }
 
+/* Styles for the card container that holds the button and other elements. */
 .card {
-  padding: 2em;
+  padding: 2em; /* Adds padding inside the card. */
 }
 
+/* Styles for the "read-the-docs" paragraph. */
 .read-the-docs {
-  color: #888;
+  color: #888; /* Sets a muted color for the text. */
 }

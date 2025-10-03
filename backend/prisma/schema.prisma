@@ -9,50 +9,88 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/// Represents a client in the system.
 model Cliente {
+  /// Unique identifier for the client.
   id        Int      @id @default(autoincrement())
+  /// Name of the client (must be unique).
   nome      String   @unique
+  /// A list of units associated with this client.
   unidades  Unidade[]
+  /// A list of contracts associated with this client.
   contratos Contrato[]
 }
 
+/// Represents a supplier in the system.
 model Fornecedor {
+  /// Unique identifier for the supplier.
   id           Int      @id @default(autoincrement())
+  /// Name of the supplier (must be unique).
   nome         String   @unique
+  /// The supplier's CNPJ (taxpayer registry number), which is optional and must be unique.
   cnpj         String?  @unique
+  /// A list of collaborators associated with this supplier.
   colaboradores Colaborador[]
+  /// A list of contracts associated with this supplier.
   contratos    Contrato[]
 }
 
+/// Represents a business unit associated with a client.
 model Unidade {
+  /// Unique identifier for the unit.
   id        Int     @id @default(autoincrement())
+  /// Name of the unit.
   nome      String
+  /// The client to which this unit belongs.
   cliente   Cliente @relation(fields: [clienteId], references: [id])
+  /// Foreign key for the client.
   clienteId Int
 }
 
+/// Represents a contract between a client and a supplier.
 model Contrato {
+  /// Unique identifier for the contract.
   id           Int      @id @default(autoincrement())
+  /// The contract number (must be unique).
   numero       String   @unique
+  /// The start date of the contract.
   dataInicio   DateTime
+  /// The end date of the contract.
   dataFim      DateTime
+  /// The client associated with this contract.
   cliente      Cliente    @relation(fields: [clienteId], references: [id])
+  /// Foreign key for the client.
   clienteId    Int
+  /// The supplier associated with this contract.
   fornecedor   Fornecedor @relation(fields: [fornecedorId], references: [id])
+  /// Foreign key for the supplier.
   fornecedorId Int
 }
 
+/// Represents a collaborator (employee) associated with a supplier.
 model Colaborador {
+  /// Unique identifier for the collaborator.
   id              Int      @id @default(autoincrement())
+  /// Name of the collaborator.
   nome            String
+  /// The collaborator's CPF (individual taxpayer registry number), which must be unique.
   cpf             String   @unique
+  /// The collaborator's date of birth.
   dataNascimento  DateTime
+  /// The name of the collaborator's mother.
   nomeMae         String
+  /// The date the collaborator was admitted.
   dataAdmissao    DateTime
+  /// The date the collaborator was dismissed (optional).
   dataDemissao    DateTime?
+  /// Indicates whether the collaborator is currently active (defaults to true).
   ativo           Boolean  @default(true)
+  /// Timestamp of when the record was created.
   criadoEm        DateTime @default(now())
+  /// Timestamp of the last update to the record.
   atualizadoEm    DateTime @updatedAt
+  /// The supplier to which this collaborator belongs.
   fornecedor      Fornecedor @relation(fields: [fornecedorId], references: [id])
+  /// Foreign key for the supplier.
   fornecedorId    Int
 }

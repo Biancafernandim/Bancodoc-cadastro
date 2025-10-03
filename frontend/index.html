@@ -1,13 +1,21 @@
+<!-- This is the main HTML file that serves as the entry point for the single-page application. -->
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Specifies the character encoding for the document. -->
     <meta charset="UTF-8" />
+    <!-- Sets the favicon for the website. -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Configures the viewport to ensure the site is responsive on mobile devices. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The title of the web page, which appears in the browser tab. -->
     <title>frontend</title>
   </head>
   <body>
+    <!-- This is the root DOM node where the React application will be mounted. -->
     <div id="root"></div>
+    <!-- This script tag loads the main JavaScript entry point for the React application.
+         The `type="module"` attribute allows for the use of ES modules. -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
