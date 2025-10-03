@@ -1,11 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Sidebar from './components/Sidebar.jsx';
-import Clientes from './pages/Clientes.jsx';
-import Fornecedores from './pages/Fornecedores.jsx';
-import CadastrarColaborador from './pages/CadastrarColaborador.jsx';
-import Contratos from './pages/Contratos.jsx';
+import Sidebar from './components/Sidebar';
 import './App.css';
+
+import Clientes from './pages/Clientes';
+
+import Fornecedores from './pages/Fornecedores';
+
+import CadastrarColaborador from './pages/CadastrarColaborador';
+
+import Contratos from './pages/Contratos';
 
 function App() {
   return (
