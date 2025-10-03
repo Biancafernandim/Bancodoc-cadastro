@@ -1,68 +1,84 @@
+/*
+  This file contains global styles and CSS variable definitions.
+*/
+
+/* Defines CSS variables and default styles for the root element. */
 :root {
+  /* Sets the default font family for the entire application. */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /* Defines the color scheme for both light and dark modes. */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87); /* Default text color for dark mode. */
+  background-color: #242424; /* Default background color for dark mode. */
 
+  /* Disables font synthesis to maintain the integrity of the chosen font. */
   font-synthesis: none;
+  /* Optimizes text rendering for legibility. */
   text-rendering: optimizeLegibility;
+  /* Enables antialiasing for smoother font rendering on WebKit browsers. */
   -webkit-font-smoothing: antialiased;
+  /* Enables antialiasing for smoother font rendering on Mozilla browsers. */
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Default styles for anchor (link) tags. */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #646cff; /* Sets the link color. */
+  text-decoration: inherit; /* Removes the default underline. */
 }
 a:hover {
-  color: #535bf2;
+  color: #535bf2; /* Changes the link color on hover. */
 }
 
+/* Styles for the body element. */
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 0; /* Removes the default body margin. */
+  display: flex; /* Uses flexbox for layout. */
+  place-items: center; /* Centers the content both vertically and horizontally. */
+  min-width: 320px; /* Sets a minimum width for the body. */
+  min-height: 100vh; /* Sets a minimum height to fill the viewport. */
 }
 
+/* Styles for h1 headings. */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3.2em; /* Sets a large font size for the main heading. */
+  line-height: 1.1; /* Adjusts the line height for the heading. */
 }
 
+/* Default styles for buttons. */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  border-radius: 8px; /* Adds rounded corners to buttons. */
+  border: 1px solid transparent; /* Sets a transparent border. */
+  padding: 0.6em 1.2em; /* Adds padding inside the buttons. */
+  font-size: 1em; /* Sets the font size for button text. */
+  font-weight: 500; /* Sets the font weight for button text. */
+  font-family: inherit; /* Inherits the font family from the parent. */
+  background-color: #1a1a1a; /* Sets a dark background color for buttons. */
+  cursor: pointer; /* Changes the cursor to a pointer on hover. */
+  transition: border-color 0.25s; /* Adds a smooth transition for the border color. */
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #646cff; /* Changes the border color on hover. */
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color; /* Adds a focus outline for accessibility. */
 }
 
+/* Overrides for the light color scheme. */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #213547; /* Sets the text color for light mode. */
+    background-color: #ffffff; /* Sets the background color for light mode. */
   }
   a:hover {
-    color: #747bff;
+    color: #747bff; /* Changes the link hover color for light mode. */
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Sets a light background color for buttons in light mode. */
   }
 }
